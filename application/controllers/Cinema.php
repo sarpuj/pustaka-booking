@@ -16,17 +16,17 @@ class Cinema extends CI_Controller{
         elseif($this->input->post('tipe')=="Velvet"){
             $harga = 100000;
         }
-    
         $total=$this->input->post('jumlah') * $harga;
 
-            $data['nama'] = $this->input->post('nama');
-            $data['judul'] = $this->input->post('judul');
-            $data['jam'] = $this->input->post('jam');
-            $data['tipe'] = $this->input->post('tipe');
-            $data['jumlah'] = $this->input->post('jumlah');
-            $data['harga'] = $harga;
-            $data['total'] = $total;
-
+            $data = [
+                'nama' => $this->input->post('nama'),
+                'judul' => $this->input->post('judul'),
+                'jam' => $this->input->post('jam'),
+                'tipe' => $this->input->post('tipe'),
+                'jumlah' => $this->input->post('jumlah'),
+                'harga' => $harga,
+                'total' => $total
+            ];
         $this->load->view('view-output-cinema',$data);
     }
 }
